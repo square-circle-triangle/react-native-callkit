@@ -245,7 +245,7 @@ RCT_EXPORT_METHOD(setMutedCall:(NSString *)uuidString muted:(BOOL)muted)
                 callUpdate.supportsGrouping = NO;
                 callUpdate.supportsUngrouping = NO;
                 callUpdate.hasVideo = NO;
-                [self.callKitProvider reportCallWithUUID:startCallAction.callUUID updated:callUpdate];
+                [self.callKitProvider reportCallWithUUID:startCallAction.UUID updated:callUpdate];
             }
         }
     }];
