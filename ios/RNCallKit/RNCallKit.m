@@ -184,7 +184,7 @@ RCT_EXPORT_METHOD(_startCallActionEventListenerAdded)
                 callUpdate.supportsGrouping = NO;
                 callUpdate.supportsUngrouping = NO;
                 callUpdate.hasVideo = NO;
-                [self.callKitProvider reportCallWithUUID:startCallAction.callUUID updated:callUpdate];
+                [self.callKitProvider reportCallWithUUID:startCallAction.UUID updated:callUpdate];
             }
         }
     }];
@@ -241,12 +241,12 @@ RCT_EXPORT_METHOD(_startCallActionEventListenerAdded)
 
     AVAudioSession* audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
-    
-    [audioSession setMode:AVAudioSessionModeVoiceChat error:nil];
-    
+
+    [audioSession setMode:AVAudioSessionModeVideoChat error:nil];
+
     double sampleRate = 44100.0;
     [audioSession setPreferredSampleRate:sampleRate error:nil];
-    
+
     NSTimeInterval bufferDuration = .005;
     [audioSession setPreferredIOBufferDuration:bufferDuration error:nil];
     [audioSession setActive:TRUE error:nil];
